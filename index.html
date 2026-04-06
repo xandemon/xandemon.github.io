@@ -70,6 +70,7 @@
           "alternateName": "xandemon",
           "url": "https://xandemon.github.io/",
           "sameAs": [
+            "https://sandeshkatwal.com.np/",
             "https://github.com/xandemon",
             "https://www.npmjs.com/~xandemon"
           ],
@@ -279,6 +280,113 @@
         color: var(--text);
       }
 
+      .portfolio-card {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.25rem 1.5rem;
+        background: var(--surface);
+        border-radius: 12px;
+        text-decoration: none;
+        color: inherit;
+        transition: background 0.2s;
+        overflow: hidden;
+      }
+
+      .portfolio-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 12px;
+        padding: 1px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-red),
+          var(--accent-orange),
+          var(--accent-green)
+        );
+        -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        mask-composite: exclude;
+        opacity: 0.45;
+        transition: opacity 0.25s;
+        pointer-events: none;
+      }
+
+      .portfolio-card:hover::before {
+        opacity: 1;
+      }
+
+      .portfolio-card:hover {
+        background: #20212f;
+      }
+
+      .portfolio-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+
+      .portfolio-name-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .badge {
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent-orange);
+        border: 1px solid rgba(255, 147, 30, 0.35);
+        border-radius: 4px;
+        padding: 1px 6px;
+        flex-shrink: 0;
+      }
+
+      .portfolio-url {
+        font-size: 0.75rem;
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        color: var(--muted);
+        letter-spacing: 0.01em;
+      }
+
+      .portfolio-name {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text);
+        letter-spacing: -0.02em;
+      }
+
+      .portfolio-desc {
+        font-size: 0.82rem;
+        color: var(--muted);
+        line-height: 1.45;
+      }
+
+      .portfolio-arrow {
+        font-size: 1.15rem;
+        color: var(--muted);
+        flex-shrink: 0;
+        transition:
+          transform 0.2s,
+          color 0.2s;
+      }
+
+      .portfolio-card:hover .portfolio-arrow {
+        transform: translate(2px, -2px);
+        color: var(--text);
+      }
+
       .links {
         display: flex;
         gap: 1.25rem;
@@ -319,8 +427,30 @@
         </p>
       </div>
 
+      <div>
+        <a
+          href="https://sandeshkatwal.com.np/"
+          class="portfolio-card"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="portfolio-info">
+            <span class="portfolio-url">sandeshkatwal.com.np</span>
+            <div class="portfolio-name-row">
+              <span class="portfolio-name">Sandesh Katwal</span>
+              <span class="badge">Portfolio</span>
+            </div>
+            <span class="portfolio-desc">
+              Frontend-focused Full-Stack Software Engineer — my skills,
+              projects, and everything about me in one place.
+            </span>
+          </div>
+          <span class="portfolio-arrow">↗</span>
+        </a>
+      </div>
+
       <div class="projects">
-        <p class="section-label">Projects</p>
+        <p class="section-label">Open Source</p>
         <a
           href="https://xandemon.github.io/developer-icons/"
           class="project-card"
